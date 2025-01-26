@@ -1,0 +1,36 @@
+name: Build
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      # ...existing code...
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.1"
+          bundler-cache: true
+      
+      - name: Cache Docker layers
+        uses: actions/cache@v3
+        with:
+          path: ./.docker-cache
+          key: ${{ runner.os }}-docker-${{ hashFiles('**/Dockerfile', '**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-docker-
+      
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: false
+          tags: my-ruby-app:latest
+          cache-from: type=local,src=./.docker-cache
+          cache-to: type=local,dest=./.docker-cache
+      # ...existing code...
