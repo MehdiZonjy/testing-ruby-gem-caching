@@ -26,6 +26,8 @@ jobs:
             ${{ runner.os }}-docker-
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
+      - name: show me the cache
+        run: ls -la ./.docker-cache
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
