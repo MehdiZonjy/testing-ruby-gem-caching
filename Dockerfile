@@ -8,7 +8,7 @@ WORKDIR /app
 
 COPY Gemfile Gemfile.lock ./
 
-RUN --mount=type=bind,source=./vendor,target=/app/vendor,rw --mount=type=ssh,id=default \
+RUN --mount=type=ssh,id=default \
     bundle config set --local path '/app/vendor' && \
     bundle config set --local deployment 'true' && \
     bundle config set --local without 'development test' && \

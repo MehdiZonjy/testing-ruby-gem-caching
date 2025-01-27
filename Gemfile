@@ -57,7 +57,7 @@ gem 'bootstrap-datepicker-rails', '~> 1.8.0.1'
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'bootstrap-select-rails', '~> 1.12.4'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.43',
-    github: 'sanjsharma/bootstrap3-datetimepicker-rails'
+    git: 'git@github.com:sanjsharma/bootstrap3-datetimepicker-rails.git'
 gem 'browser', '~> 5.3.1' # Browser detection
 gem 'carrierwave-aws', '~> 1.5.0'
 gem 'chartkick'
