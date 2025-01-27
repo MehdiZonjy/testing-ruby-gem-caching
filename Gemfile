@@ -210,6 +210,7 @@ gem 'wicked', '~>1.3.4'
 gem 'slack-ruby-client'
 gem 'launchdarkly-server-sdk', '~> 8.1.0'
 gem 'pg-aws_rds_iam', '~> 0.5.0'
+gem 'better_errors', '~> 2'
 
 group :development do
   gem 'awesome_print', '~> 1.8.0'
