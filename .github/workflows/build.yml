@@ -11,6 +11,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ vars.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+
       - name: Cache vendor directory
         uses: actions/cache@v3
         with:
@@ -26,9 +33,12 @@ jobs:
       - name: Build image with Buildah
         uses: redhat-actions/buildah-build@v2
         with:
-          image: my-ruby-app
+          image: mehdizonjy/ruby-cache-test
           tags: latest ${{ github.sha }}
           layers: true
           containerfiles: |
             ./Dockerfile
           context: .
+          build-args:
+            cache-to: docker://mehdizonjy/ruby-cache-test:cache
+            cache-from: docker://mehdizonjy/ruby-cache-test:cache
