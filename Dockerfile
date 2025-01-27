@@ -10,9 +10,17 @@ RUN mkdir -p /root/.ssh && \
 
 WORKDIR /app
 
+# First copy just the Gemfile/Gemfile.lock
 COPY Gemfile Gemfile.lock ./
-RUN --mount=type=cache,target=/usr/local/bundle bundle install
 
+# Use mount cache for bundle path and separate RUN commands for better caching
+RUN --mount=type=cache,target=/usr/local/bundle \
+    bundle config set --local path '/usr/local/bundle' && \
+    bundle config set --local deployment 'true' && \
+    bundle config set --local without 'development test' && \
+    bundle install --jobs $(nproc) --retry 3
+
+# Only after bundle install copy the rest of the app
 COPY . /app
 VOLUME ["/usr/local/bundle"]
 
