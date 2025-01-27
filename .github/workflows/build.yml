@@ -30,9 +30,7 @@ jobs:
       #     bundle config set --local path 'vendor'
       #     bundle install --jobs $(nproc) --retry 3
 
-      - name: Set up Buildah
-        uses: redhat-actions/setup-buildah@v1
-
+ 
       - name: Build image with Buildah
         uses: redhat-actions/buildah-build@v2
         with:
