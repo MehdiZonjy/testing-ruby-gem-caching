@@ -4,38 +4,16 @@ FROM ruby:3.2.2-alpine
 RUN apk add --no-cache git build-base openssh-client postgresql-dev libpq shared-mime-info && \
     git config --global url."https://github.com/".insteadOf git@github.com:
 
-RUN mkdir -p /root/.ssh && \
-    echo "StrictHostKeyChecking no" >> /root/.ssh/config && \
-    chmod 600 /root/.ssh/config
-
 WORKDIR /app
 
-# First copy just the Gemfile/Gemfile.lock
 COPY Gemfile Gemfile.lock ./
 
-# Use mount cache for bundle path and separate RUN commands for better caching
-# RUN --mount=type=cache,target=/usr/local/bundle \
-# RUN --mount=type=bind,source=./bundle-cache,target=/usr/local/bundle,rw \
-#     bundle config set --local path '/usr/local/bundle' && \
-#     bundle config set --local deployment 'true' && \
-#     bundle config set --local without 'development test' && \
-#     bundle install --jobs $(nproc) --retry 3
-
-# RUN --mount=type=bind,source=./bundle-cache,target=/app2,rw \
-#         cat /app2/test && echo 'FOOOjjjOO' && \
-#         echo "This is a new file content" > /app2/newfile.txt
-
-RUN --mount=type=cache,target=/app/vendor \
-    echo "vendor"  && ls /app/vendor && \
+RUN --mount=type=bind,source=./vendor,target=/app/vendor,rw \
+    bundle config set --local path '/app/vendor' && \
     bundle config set --local deployment 'true' && \
     bundle config set --local without 'development test' && \
     bundle install --jobs $(nproc) --retry 3
 
-
-
-
-# Only after bundle install copy the rest of the app
 COPY . /app
-VOLUME ["/usr/local/bundle"]
 
 CMD ["ruby", "script.rb"]

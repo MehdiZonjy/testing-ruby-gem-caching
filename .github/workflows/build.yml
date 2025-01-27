@@ -19,23 +19,13 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gems-
 
-      # - name: Set up Ruby for local bundle
-      #   uses: ruby/setup-ruby@v1
-      #   with:
-      #     ruby-version: "3.2.2"
-      #     bundler-cache: false
-
-      # - name: Install dependencies locally to populate vendor
-      #   run: |
-      #     bundle config set --local path 'vendor'
-      #     bundle install --jobs $(nproc) --retry 3
-
  
       - name: Build image with Buildah
         uses: redhat-actions/buildah-build@v2
         with:
           image: my-ruby-app
           tags: latest ${{ github.sha }}
+          layers: true
           containerfiles: |
             ./Dockerfile
           context: .

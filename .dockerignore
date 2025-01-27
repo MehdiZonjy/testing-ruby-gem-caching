@@ -2,3 +2,4 @@
 .docker-cache
 .github
 .bundle-cache
+vendor
