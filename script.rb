@@ -6,3 +6,5 @@ get '/' do
 end
 
 puts "Hello from Docker with Sinatra!"
+
+
