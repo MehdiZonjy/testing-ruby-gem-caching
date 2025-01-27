@@ -17,7 +17,6 @@ jobs:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-
       - name: Cache vendor directory
         uses: actions/cache@v3
         with:
@@ -40,5 +39,6 @@ jobs:
             ./Dockerfile
           context: .
           extra-args: |
+            --ssh default
             --cache-to=mehdizonjy/ruby-cache-test
             --cache-from=mehdizonjy/ruby-cache-test
