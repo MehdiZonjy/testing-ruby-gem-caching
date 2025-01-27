@@ -18,6 +18,9 @@ jobs:
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-gems-
+      - name : create vendor directory
+        run: |
+          mkdir -p vendor
 
  
       - name: Build image with Buildah
