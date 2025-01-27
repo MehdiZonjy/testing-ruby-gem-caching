@@ -1,3 +1,5 @@
 .docker-cache
 .bundle-cache
 vendor
+gh-action-key
+gh-action-key.pub
