@@ -375,6 +375,8 @@ GEM
       ffi (>= 1.15.0)
     excon (0.71.1)
     execjs (2.10.0)
+    factory_bot (6.5.0)
+      activesupport (>= 5.0.0)
     faker (3.1.1)
       i18n (>= 1.8.11, < 2)
     faraday (2.7.12)
@@ -1039,6 +1041,7 @@ DEPENDENCIES
   dry-validation
   elasticsearch (~> 7.17)
   excon (~> 0.71.0)
+  factory_bot (~> 6.4, >= 6.4.6)
   faker (~> 3.1.1)
   faraday (~> 2.7.6)
   faraday-typhoeus (~> 1.1)

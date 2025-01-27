@@ -12,9 +12,6 @@ RUN mkdir -p ~/.ssh && \
     ssh-keyscan github.com >> ~/.ssh/known_hosts
 
 RUN --mount=type=ssh,id=default \
-    git clone git@github.com:sanjsharma/bootstrap3-datetimepicker-rails.git --verbose
-
-RUN --mount=type=ssh,id=default \
     bundle config set --local path '/app/vendor' && \
     bundle config set --local deployment 'true' && \
     bundle config set --local without 'development test' && \
