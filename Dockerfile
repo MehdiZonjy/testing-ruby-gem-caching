@@ -26,6 +26,7 @@ COPY Gemfile Gemfile.lock ./
 #         echo "This is a new file content" > /app2/newfile.txt
 
 RUN --mount=type=cache,target=/app/vendor \
+    ls /app/vendor && \
     bundle config set --local deployment 'true' && \
     bundle config set --local without 'development test' && \
     bundle install --jobs $(nproc) --retry 3
