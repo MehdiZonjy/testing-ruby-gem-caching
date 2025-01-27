@@ -21,8 +21,8 @@ gem 'pg', platform: :ruby
 gem 'client_side_validations', '>= 16.1.1'
 gem 'simple_form', '>= 5.0.0'
 
-# gem 'traces', '~> 0.10.0'
-# gem 'metrics', '~> 0.7.0'
+gem 'traces', '~> 0.10.0'
+gem 'metrics', '~> 0.7.0'
 
 # gem 'aasm', '~> 5.0.1' # state transition
 # gem 'actionpack-cloudfront', '~> 1'
