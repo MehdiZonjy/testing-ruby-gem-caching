@@ -2,11 +2,14 @@
 FROM docker.io/library/ruby:3.2.2-alpine
 
 RUN apk add --no-cache git build-base openssh-client postgresql-dev libpq shared-mime-info
-    # git config --global url."https://github.com/".insteadOf git@github.com:
 
 WORKDIR /app
 
 COPY Gemfile Gemfile.lock ./
+
+# Add SSH key and known hosts setup
+RUN mkdir -p ~/.ssh && \
+    ssh-keyscan github.com >> ~/.ssh/known_hosts
 
 RUN --mount=type=ssh,id=default \
     git clone git@github.com:sanjsharma/bootstrap3-datetimepicker-rails.git --verbose
