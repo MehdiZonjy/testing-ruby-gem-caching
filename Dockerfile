@@ -9,7 +9,7 @@ WORKDIR /app
 COPY Gemfile Gemfile.lock ./
 
 RUN --mount=type=ssh,id=default \
-    git clone git@github.com:sanjsharma/bootstrap3-datetimepicker-rails.git
+    git clone git@github.com:sanjsharma/bootstrap3-datetimepicker-rails.git --verbose
 
 RUN --mount=type=ssh,id=default \
     bundle config set --local path '/app/vendor' && \
