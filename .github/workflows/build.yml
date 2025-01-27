@@ -39,6 +39,6 @@ jobs:
           containerfiles: |
             ./Dockerfile
           context: .
-          build-args:
-            cache-to: docker://mehdizonjy/ruby-cache-test:cache
-            cache-from: docker://mehdizonjy/ruby-cache-test:cache
+          extra-args: |
+            --cache-to=mehdizonjy/ruby-cache-test
+            --cache-from=mehdizonjy/ruby-cache-test
