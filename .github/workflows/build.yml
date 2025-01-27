@@ -34,7 +34,7 @@ jobs:
           push: false
           tags: my-ruby-app:latest
           cache-from: type=local,mode=max,src=./.docker-cache
-          cache-to: type=local,modedest=./.docker-cache
+          cache-to: type=local,mode=max,dest=./.docker-cache
           # cache-from: type=gha,mode=max
           # cache-to: type=gha,mode=max
 
