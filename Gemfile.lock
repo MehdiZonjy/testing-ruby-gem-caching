@@ -11,8 +11,6 @@ GIT
     ffs (0.1.0)
       rails (>= 4.1.0)
 
-
-
 GIT
   remote: git@github.com:monterail/zip-codes.git
   revision: 46b5ba5bb6e912ddd965c30e7a3678406bda44ea
