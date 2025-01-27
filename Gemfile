@@ -11,15 +11,15 @@ git_source(:github) do |repo_name|
 end
 
 # rails core gem
-gem 'rails', '~> 6.1.7.3'
+# gem 'rails', '~> 6.1.7.3'
 
 # Use postgresql as the Database for Active Record
 gem 'pg', platform: :ruby
 
 # # "Order matters here" according to
 # # https://github.com/DavyJonesLocker/client_side_validations-simple_form
-gem 'client_side_validations', '>= 16.1.1'
-gem 'simple_form', '>= 5.0.0'
+# gem 'client_side_validations', '>= 16.1.1'
+# gem 'simple_form', '>= 5.0.0'
 
 # gem 'traces', '~> 0.10.0'
 # gem 'metrics', '~> 0.7.0'
