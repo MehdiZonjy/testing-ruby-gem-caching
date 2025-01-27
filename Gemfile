@@ -16,24 +16,24 @@ gem 'rails', '~> 6.1.7.3'
 # Use postgresql as the Database for Active Record
 gem 'pg', platform: :ruby
 
-# "Order matters here" according to
-# https://github.com/DavyJonesLocker/client_side_validations-simple_form
-gem 'client_side_validations', '>= 16.1.1'
-gem 'simple_form', '>= 5.0.0'
+# # "Order matters here" according to
+# # https://github.com/DavyJonesLocker/client_side_validations-simple_form
+# gem 'client_side_validations', '>= 16.1.1'
+# gem 'simple_form', '>= 5.0.0'
 
-gem 'traces', '~> 0.10.0'
-gem 'metrics', '~> 0.7.0'
+# gem 'traces', '~> 0.10.0'
+# gem 'metrics', '~> 0.7.0'
 
-gem 'aasm', '~> 5.0.1' # state transition
-gem 'actionpack-cloudfront', '~> 1'
-gem 'active_model_serializers', '~> 0.10.8'
-gem 'activemerchant', '~> 1.89.0' # credit card validation
-gem 'activerecord-import', '~> 1.0.3' # bulk import
-gem 'active_record_union', '~> 1.3.0' # union queries
-gem 'addressable', '~> 2.8.0'
-gem 'american_date', '~> 1.1.1' # parse american date
-gem 'annotate', '~> 3.1.1'
-gem 'area', '~> 0.10.0'
+# gem 'aasm', '~> 5.0.1' # state transition
+# gem 'actionpack-cloudfront', '~> 1'
+# gem 'active_model_serializers', '~> 0.10.8'
+# gem 'activemerchant', '~> 1.89.0' # credit card validation
+# gem 'activerecord-import', '~> 1.0.3' # bulk import
+# gem 'active_record_union', '~> 1.3.0' # union queries
+# gem 'addressable', '~> 2.8.0'
+# gem 'american_date', '~> 1.1.1' # parse american date
+# gem 'annotate', '~> 3.1.1'
+# gem 'area', '~> 0.10.0'
 # gem 'async-http', '~> 0.56.5'
 # gem 'audio-trimmer', '~> 0.0.6' # Audio trimmer for ruby powered by sox
 # gem 'auth0', '~> 5.11'
